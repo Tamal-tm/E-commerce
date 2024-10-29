@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Page</title>
+  <style>
+    /* General Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Navbar */
+    .navbar {
+      width: 100%;
+      background-color: #333;
+      color: white;
+      padding: 1em 0;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .navbar a:hover {
+      color: #ff7e5f;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin-top: 100px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Home Section */
+    .home {
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* About Us Section */
+    .about-us {
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Contact Us Section */
+    .contact-us {
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Additional Styles */
+    h1, h2, h3 {
+      margin-bottom: 15px;
+    }
+
+    /* Product Page */
+    .product-page {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    /* Product Image */
+    .product-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .product-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-image img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Product Details */
+    .product-details {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .product-name {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      color: #ff7e5f;
+      margin: 10px 0;
+    }
+
+    .product-description {
+      margin-top: 10px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .add-to-cart {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 30px;
+      background-color: #ff7e5f;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+      background-color: #ff4e40;
+    }
+
+    /* Related Products Section */
+    .related-products {
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    .related-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .related-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .related-item {
+      width: 200px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .related-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .related-item img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .related-item h3 {
+      font-size: 1rem;
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    /* Reviews Section */
+    .reviews {
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    .reviews h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .review-item {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .review-item h4 {
+      font-weight: bold;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .review-item p {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+      .product-page {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
+    <a href="#">Shop</a>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- Home Section -->
+    <div id="home" class="home">
+      <h1>Welcome to Our Store</h1>
+      <p>Your one-stop destination for stylish watches. Discover our exclusive collection that combines elegance with functionality.</p>
+      <button class="add-to-cart" id="addToCart">Start Shopping</button>
+    </div>
+
+    <!-- About Us Section -->
+    <div id="about" class="about-us">
+      <h2>About Us</h2>
+      <p>We are a team of watch enthusiasts dedicated to providing you with the highest quality timepieces. Our mission is to blend style and functionality, ensuring that every watch we offer meets our standards of excellence.</p>
+      <p>Founded in 2024, we have quickly become a trusted name in the watch industry. Our collection features a wide range of styles, from classic to modern, catering to every taste and occasion.</p>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div id="contact" class="contact-us">
+      <h2>Contact Us</h2>
+      <p>If you have any questions or inquiries, feel free to reach out to us!</p>
+      <p>Email: support@watchstore.com</p>
+      <p>Phone: (123) 456-7890</p>
+      <p>Follow us on social media for the latest updates and promotions!</p>
+    </div>
+    
+    <!-- Product Page -->
+    <div class="product-page">
+      <!-- Product Image -->
+      <div class="product-image">
+        <img src="Mens_Watches_M_1500x.webp" alt="Product Image">
+      </div>
+
+      <!-- Product Details -->
+      <div class="product-details">
+        <div class="product-name">Stylish Watch</div>
+        <div class="product-price">$99.99</div>
+        <div class="product-description" id="description">
+          This stylish watch is crafted with precision, featuring a durable stainless steel case and a comfortable leather strap. Perfect for any occasion, it's both elegant and functional.
+        </div>
+        <button class="add-to-cart" id="addToCartButton">Add to Cart</button>
+        <div id="cartCounter">Items in Cart: <span id="count">0</span></div>
+      </div>
+    </div>
+
+    <!-- Related Products Section -->
+    <div class="related-products">
+      <div class="related-title">Related Products</div>
+      <div class="related-container">
+        <div class="related-item">
+          <img src="611x9gL8AsL._AC_UY1000_.jpg" alt="Product 1">
+          <h3>Classic Watch</h3>
+        </div>
+        <div class="related-item">
+          <img src="81wwjuLrY4L._AC_UY1000_.jpg" alt="Product 2">
+          <h3>Sporty Watch</h3>
+        </div>
+        <div class="related-item">
+          <img src="images (4).jpg" alt="Product 3">
+          <h3>Luxury Watch</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="reviews">
+        <h2>Customer Reviews</h2>
+        <div id="reviewList">
+          <div class="review-item">
+            <h4>John Doe</h4>
+            <p>Great quality and very stylish! I've received many compliments wearing this watch.</p>
+          </div>
+          <div class="review-item">
+            <h4>Jane Smith</h4>
+            <p>Love it! The design is elegant and it goes well with any outfit. Highly recommend.</p>
+          </div>
+          <div class="review-item">
+            <h4>Michael Lee</h4>
+            <p>Amazing value for the price. The watch is durable and looks fantastic.</p>
+          </div>
+    <div class="reviews">
+      
+      <div id="reviewContainer">
+        <!-- Reviews will be added here dynamically -->
+      </div>
+      <input type="text" id="reviewInput" placeholder="Write your review here..." />
+      <button id="submitReview">Submit Review</button>
+    </div>
+  </div>
+
+  <script>
+    // Cart Functionality
+    let cartCount = 0;
+
+    document.getElementById('addToCartButton').addEventListener('click', function() {
+      cartCount++;
+      document.getElementById('count').innerText = cartCount;
+      alert("Item added to cart!");
+    });
+
+    // Review Functionality
+    document.getElementById('submitReview').addEventListener('click', function() {
+      const reviewInput = document.getElementById('reviewInput');
+      const reviewText = reviewInput.value;
+      if (reviewText) {
+        const reviewContainer = document.getElementById('reviewContainer');
+        const reviewItem = document.createElement('div');
+        reviewItem.className = 'review-item';
+        reviewItem.innerHTML = `<h4>Customer Review:</h4><p>${reviewText}</p>`;
+        reviewContainer.appendChild(reviewItem);
+        reviewInput.value = ''; // Clear input
+      } else {
+        alert('Please enter a review before submitting.');
+      }
+    });
+  </script>
+</body>
+</html>
